@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <style>
+    webview { height: 400px; margin: 10px; border: 1px solid black }
+    input:hover {
+      background: red;
+    }
+    </style>
+</head>
+<body>
+  <h1>Hello World!</h1>
+  <!-- All of the Node.js APIs are available in this renderer process. -->
+  We are using Node.js <script>document.write(process.versions.node)</script>,
+  Chromium <script>document.write(process.versions.chrome)</script>,
+  and Electron <script>document.write(process.versions.electron)</script>.
+  
+  <hr/>
+  
+  Drag the green box below and then let it go. After the drop, 
+  hovering over content outside of the webview won't work properly 
+  until the mouse is clicked outside the webview. Try hovering over the
+  input below before and after dragging.
+
+  <input type="text" placeholder="hover to turn red"/>
+  <webview id="wv">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("wv").setAttribute("src", `file://${__dirname}/drag.html`);
+    });
+  </script>
+</body>
+</html>
